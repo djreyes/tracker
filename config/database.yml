@@ -13,3 +13,5 @@ test:
 production:
   <<: *default
   database: tracker_production
+  encoding: unicode
+  pool: 5
