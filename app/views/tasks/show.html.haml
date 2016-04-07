@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @task.title
+%p
+  %strong Description:
+  = @task.description
+%p
+  %strong Priority:
+  = @task.priority
+%p
+  %strong Assigned to:
+  = @task.owner_name || @task.owner_email
+= link_to 'Edit', edit_task_path(@task)
+|
+\#{link_to 'Back', tasks_path}
