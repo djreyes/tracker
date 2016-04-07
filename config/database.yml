@@ -1,8 +1,6 @@
 default: &default
   adapter: postgresql
-  encoding: unicode
-  pool: 5
-  hots: localhost
+  host: localhost
 
 development:
   <<: *default
@@ -15,5 +13,3 @@ test:
 production:
   <<: *default
   database: tracker_production
-  username: tracker
-  password: <%= ENV['TRACKER_DATABASE_PASSWORD'] %>
