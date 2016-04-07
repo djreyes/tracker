@@ -1,5 +1,5 @@
 %p#notice= notice
-%h1 Listing Tasks
+%h1= "Listing Tasks#{ ' for ' + @user.to_s }"
 %table
   %thead
     %tr
@@ -14,7 +14,7 @@
         %td= task.title
         %td= task.description
         %td= task.priority
-        %td= task.owner_name || task.owner_email
+        %td= task.owner
         %td= link_to 'Show', task
         %td= link_to 'Edit', edit_task_path(task)
         %td= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }

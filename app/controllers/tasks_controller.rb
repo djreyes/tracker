@@ -4,7 +4,8 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
-    @tasks = Task.all
+    @user = User.find(params[:user_id])
+    @tasks = @user ? @user.tasks : Task.all
   end
 
   # GET /tasks/1
