@@ -11,6 +11,9 @@
 %p
   %strong Assigned to:
   = @task.owner_name || @task.owner_email
+%p
+  %strong Status:
+  = @task.status
 = link_to 'Edit', edit_task_path(@task)
 |
 \#{link_to 'Back', tasks_path}

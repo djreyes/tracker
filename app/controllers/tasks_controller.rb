@@ -4,8 +4,9 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:user_id]) if params[:user_id]
     @tasks = @user ? @user.tasks : Task.all
+    @tasks = @tasks.order("priority #{ params[:sort_priority] }") if params[:sort_priority]
   end
 
   # GET /tasks/1
@@ -55,6 +56,6 @@ class TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:title, :description, :priority, :assigned_to_id)
+      params.require(:task).permit(:title, :description, :priority, :assigned_to_id, :status)
     end
 end
